@@ -5,6 +5,7 @@ pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption('TUX-SWEEPER')
 clock = pygame.time.Clock()
+pygame.display.set_icon(pygame.image.load('assets/icon.png'))
 running = True
 
 while running:
