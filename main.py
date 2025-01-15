@@ -14,6 +14,7 @@ running = True
 # some more vars
 WHITE = pygame.Color(255, 255, 255)
 mousepress = pygame.mouse.get_pressed()
+x, y = 0, 0
 
 while running:
     # poll for events
@@ -23,6 +24,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
+            grid.unselectBlock(x, y)
             x, y = pygame.mouse.get_pos()
             print(x, y)
             print(grid.getGridPos())

@@ -5,6 +5,7 @@ screen_width = 600
 screen_height = 800
 screen = pygame.display.set_mode((screen_width, screen_height))
 WHITE = pygame.Color(255, 255, 255)
+BLACK = pygame.Color(0, 0, 0)
 
 #draw grid
 def drawGrid():
@@ -30,3 +31,11 @@ def selectBlock():
     gridY = y // blockSize
     rect = pygame.Rect(gridX * blockSize, gridY * blockSize, blockSize, blockSize)
     pygame.draw.rect(screen, WHITE, rect, 0)
+
+#unselect block
+def unselectBlock(x, y):
+    blockSize = 50
+    gridX = x // blockSize
+    gridY = y // blockSize
+    rect = pygame.Rect(gridX * blockSize, gridY * blockSize, blockSize, blockSize)
+    pygame.draw.rect(screen, BLACK, rect, 0)
