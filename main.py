@@ -26,6 +26,7 @@ while running:
             x, y = pygame.mouse.get_pos()
             print(x, y)
             print(grid.getGridPos())
+            grid.selectBlock()
 
 
     # fill the screen with a color to wipe away anything from last frame

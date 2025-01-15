@@ -21,3 +21,12 @@ def getGridPos():
     gridX = x // blockSize
     gridY = y // blockSize
     return gridX, gridY
+
+#select block
+def selectBlock():
+    blockSize = 50
+    x, y = pygame.mouse.get_pos()
+    gridX = x // blockSize
+    gridY = y // blockSize
+    rect = pygame.Rect(gridX * blockSize, gridY * blockSize, blockSize, blockSize)
+    pygame.draw.rect(screen, WHITE, rect, 0)
