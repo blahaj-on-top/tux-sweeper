@@ -13,3 +13,11 @@ def drawGrid():
         for y in range(0, screen_height, blockSize):
             rect = pygame.Rect(x, y, blockSize, blockSize)
             pygame.draw.rect(screen, WHITE, rect, 1)
+
+#calculate mouse position in grid
+def getGridPos():
+    blockSize = 50
+    x, y = pygame.mouse.get_pos()
+    gridX = x // blockSize
+    gridY = y // blockSize
+    return gridX, gridY

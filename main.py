@@ -25,6 +25,7 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             print(x, y)
+            print(grid.getGridPos())
 
 
     # fill the screen with a color to wipe away anything from last frame
