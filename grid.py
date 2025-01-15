@@ -39,3 +39,4 @@ def unselectBlock(x, y):
     gridY = y // blockSize
     rect = pygame.Rect(gridX * blockSize, gridY * blockSize, blockSize, blockSize)
     pygame.draw.rect(screen, BLACK, rect, 0)
+    pygame.draw.rect(screen, WHITE, rect, 1)
