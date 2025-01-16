@@ -1,5 +1,6 @@
 import pygame
 import grid
+from fieldgen import Mines
 
 # pygame setup
 pygame.init()
@@ -10,9 +11,14 @@ pygame.display.set_caption('TUX-SWEEPER')
 clock = pygame.time.Clock()
 pygame.display.set_icon(pygame.image.load('assets/icon.png'))
 running = True
+minecoords = Mines.generateMines()
+print(minecoords)
 
 # some more vars
-WHITE = pygame.Color(255, 255, 255)
+font = pygame.font.Font('Comic Sans MS.ttf', 32)
+white = (255, 255, 255)
+green = (0, 255, 0)
+blue = (0, 0, 128)
 mousepress = pygame.mouse.get_pressed()
 x, y = 0, 0
 
@@ -27,14 +33,25 @@ while running:
             grid.unselectBlock(x, y)
             x, y = pygame.mouse.get_pos()
             print(x, y)
-            print(grid.getGridPos())
+            pos = grid.getGridPos()
+            print(pos)
+            if pos in minecoords:
+                gameover()
             grid.selectBlock()
 
 
-    # fill the screen with a color to wipe away anything from last frame
-    
-
-    # RENDER YOUR GAME HERE
+    # game over
+    def gameover():
+        text = font.render('hahahdhdh get wreckd', True, green, blue)
+        textRect = text.get_rect()
+        textRect.center = (screen_width // 2, screen_height // 2)
+        while True:
+            screen.blit(text, textRect)
+            pygame.display.flip()
+            pygame.display.update()
+            pygame.time.wait(100)
+            running = False
+ 
 
     # flip() the display to put your work on screen
     pygame.display.flip()
