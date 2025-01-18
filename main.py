@@ -36,7 +36,8 @@ while running:
             pos = grid.getGridPos()
             print(pos)
             if pos in minecoords:
-                gameover()
+                # gameover()
+                draw_game_over_screen()
             grid.selectBlock()
 
 
@@ -52,6 +53,24 @@ while running:
             pygame.time.wait(100)
             running = False
  
+    def draw_game_over_screen():
+        while True:
+            screen.fill((0, 0, 0))
+            font = pygame.font.SysFont('Comic Sans MS', 40)
+            title = font.render('Game Over', True, (255, 255, 255))
+            quit_button = font.render('Q - Quit', True, (255, 255, 255))
+            screen.blit(title, (screen_width/2 - title.get_width()/2, screen_height/2 - title.get_height()/3))
+            screen.blit(quit_button, (screen_width/2 - quit_button.get_width()/2, screen_height/2 + quit_button.get_height()/2))
+            pygame.display.update()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                    exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        print('quit')
+                        running = False
+                        exit()
 
     # flip() the display to put your work on screen
     pygame.display.flip()
