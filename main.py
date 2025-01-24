@@ -57,7 +57,7 @@ while running:
         while True:
             screen.fill((0, 0, 0))
             font = pygame.font.SysFont('Comic Sans MS', 40)
-            title = font.render('Game Over', True, (255, 255, 255))
+            title = font.render('hahahdhdh get wreckd', True, (255, 255, 255))
             quit_button = font.render('Q - Quit', True, (255, 255, 255))
             screen.blit(title, (screen_width/2 - title.get_width()/2, 200 - title.get_height()/3))
             screen.blit(quit_button, (screen_width/2 - quit_button.get_width()/2, 250 + quit_button.get_height()/2))
